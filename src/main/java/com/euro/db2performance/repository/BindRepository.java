@@ -25,13 +25,13 @@ public class BindRepository {
     public List<Bind> findBindsByPackage(String collection, String packageName) {
         String sql = """
                 SELECT
-                    CONSISTENCY_TOKEN,
-                    CREATE_TIME,
+                    CONTOKEN AS CONSISTENCY_TOKEN,
+                    BINDTIME,
                     VERSION
                 FROM %s
                 WHERE COLLID = :collection
                   AND NAME = :program
-                ORDER BY CREATE_TIME DESC
+                ORDER BY BINDTIME DESC
                 """.formatted(Db2CatalogConstants.SYSPACKAGE);
 
         return jdbcTemplate.query(

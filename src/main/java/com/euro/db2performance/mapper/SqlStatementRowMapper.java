@@ -16,9 +16,9 @@ public class SqlStatementRowMapper implements RowMapper<SqlStatement> {
         stmt.setCollection(rs.getString("COLLECTION"));
         stmt.setProgram(rs.getString("PROGRAM"));
         stmt.setConToken(rs.getString("CONSISTENCY_TOKEN"));
-        stmt.setStatementNumber(rs.getObject("STMTNO") == null ? null : rs.getInt("STMTNO"));
-        stmt.setSeqNumber(rs.getObject("SEQNO") == null ? null : rs.getInt("SEQNO"));
-        stmt.setSqlText(rs.getString("SQL_TEXT"));
+        stmt.setStatementNumber(rs.getObject("STMT") == null ? null : rs.getInt("STMT"));
+        stmt.setSeqNumber(null);
+        stmt.setSqlText(rs.getString("SQLTEXT"));
         stmt.setTextToken(rs.getString("TEXT_TOKEN"));
         stmt.setTotalCpu(rs.getLong("DB2_CPU"));
         stmt.setTotalElapsed(rs.getLong("DB2_ELAPSED"));
